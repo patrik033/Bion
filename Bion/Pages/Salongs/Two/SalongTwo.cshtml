@@ -1,0 +1,66 @@
+﻿@page
+@model Bion.Pages.SalongTwoModel
+
+@{
+    ViewData["Title"] = "SalongOne";
+}
+
+<h1>SalongOne</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieShowTime[1].MovieScreeningTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieShowTime[1].AvailableSeats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieShowTime[1].MaxNumberSeats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieShowTime[1].TicketPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieShowTime[1].Cinema)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieShowTime[1].Movie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.MovieShowTime) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieScreeningTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxNumberSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cinema.CinemaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie.Title)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
