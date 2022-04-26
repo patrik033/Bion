@@ -5,11 +5,9 @@
     ViewData["Title"] = "SalongOne";
 }
 
-<h1>SalongOne</h1>
+<h1>Salong Ett</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -21,9 +19,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.MovieShowTime[0].MaxNumberSeats)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MovieShowTime[0].TicketPrice)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.MovieShowTime[0].Cinema)
@@ -47,18 +42,13 @@
                 @Html.DisplayFor(modelItem => item.MaxNumberSeats)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TicketPrice)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Cinema.CinemaName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Movie.Title)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.Id">Reserve</a> 
             </td>
         </tr>
 }

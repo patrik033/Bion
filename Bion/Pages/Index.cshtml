@@ -4,23 +4,67 @@
     ViewData["Title"] = "Home page";
 }
 
+
 <div class=row>
-    <div class="col-6 salong">
-        <img src="~/images/Salong1.jpg" />
-        <div class="layer">
-            <a asp-page="/Salongs/One/SalongOne">
-                <h1>Salong 1</h1>
-            </a>
+    <div class="col-12 text-center">
+        <h2>Välkommen till Bängans Bio</h2>
+    </div>
+
+
+
+
+    <div class="align-me">
+
+        <div class="col-md-6 salong small-screen-right">
+            <img src="~/images/Salong1.jpg" />
+            <div class="layer">
+                <a asp-page="/Salongs/One/SalongOne">
+                    <h1>Salong 1</h1>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6 salong space">
+            <img src="~/images/Salong2.jpg" />
+            <div class="layer">
+                <a asp-page="/Salongs/Two/SalongTwo">
+                    <h1>Salong 2</h1>
+                </a>
+            </div>
         </div>
     </div>
-    <div class="col-6 salong space">
-        <img src="~/images/Salong2.jpg" />
-        <div class="layer">
-            <a asp-page="/Salongs/Two/SalongTwo">
-                <h1>Salong 2</h1>
-            </a>
-        </div>
+
+</div>
+
+<hr />
+<br />
+<br />
+<h2 class="text-center">Vad våra besökare tycker om våran biograf</h2>
+<br />
+<br />
+<div class="card-group">
+  <div class="card" style="width:18rem;">
+    <img  src="~/images/DOnaldPic.jpg" class="card-img-top " alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Donald Trump:</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
     </div>
+  </div>
+  <div class="card" style="width:18rem;">
+    <img src="~/images/BenjaminPhoto.jpg" class="card-img-top " alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Benjamin Franklin:</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+
+    </div>
+  </div>
+  <div class="card" style="width:18rem;">
+    <img src="~/images/Ronald270.jpg" class="card-img-top image-max-size" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Ronald Reagan:</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    </div>
+  </div>
 </div>
 
 
