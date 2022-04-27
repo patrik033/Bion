@@ -10,6 +10,7 @@ namespace Bion.Models
 {
     public class TicketOrder
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]       
         public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }
@@ -22,7 +23,10 @@ namespace Bion.Models
         public int Seats { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
-        public MovieShowTime MovieShowTime { get; set; }
+        public string MovieTitle { get; set; }
+        public string? BookingNumber { get; set; }
+        public string SalongName { get; set; }
+        public string Time { get; set; }
 
 
     }

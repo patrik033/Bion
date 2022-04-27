@@ -12,7 +12,11 @@ html {
     }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1000px) {
+
+    html{
+        padding-left:16px;
+    }
 
     body{
         margin-left:16px;
@@ -21,18 +25,17 @@ html {
    
     .align-me {
         flex-direction: column;
-        margin:0px;
-        padding:0px;
-        margin-left:16px;
     }
-    .space{
-        right:0px;
-    }
+   
 
     .small-screen-right{
-        right:70px;
+        right:35px;
+
     }
+ 
 }
+
+
 
 html {
     position: relative;

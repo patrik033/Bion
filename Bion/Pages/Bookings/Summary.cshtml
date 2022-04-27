@@ -1,0 +1,76 @@
+﻿@page
+@model Bion.Pages.Bookings.SummaryModel
+@{
+}
+
+
+<div>
+    <h4>MovieShowTime</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label asp-for="TicketOrder.FirstName"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TicketOrder.FirstName
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="TicketOrder.LastName"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TicketOrder.LastName
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="TicketOrder.Email"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TicketOrder.Email
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="TicketOrder.Seats"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TicketOrder.Seats
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="TicketOrder.Price"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TicketOrder.Price
+        </dd>
+
+
+        <dt class="col-sm-2">
+            <label asp-for="TicketOrder.MovieTitle"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TicketOrder.MovieTitle
+        </dd>
+
+        <dt class="col-sm-2">
+            <label asp-for="TicketOrder.BookingNumber"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TicketOrder.BookingNumber
+        </dd>
+
+        <dt class="col-sm-2">
+            <label asp-for="TicketOrder.SalongName"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TicketOrder.SalongName
+        </dd>
+
+        <dt class="col-sm-2">
+            <label asp-for="TicketOrder.Time"></label>
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TicketOrder.Time
+        </dd>
+
+        
+    </dl>
+</div>
+<div>
+    <a asp-page="/Index" class="btn btn-danger">Back to List</a>
+</div>

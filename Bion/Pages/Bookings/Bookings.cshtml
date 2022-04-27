@@ -10,6 +10,10 @@
 
         <div class="col-md-6">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="MovieShowTime.MaxNumberSeats" value ="@Model.MovieShowTime.MaxNumberSeats" />
+        <input type="hidden" asp-for="MovieShowTime.CinemaId" value ="@Model.MovieShowTime.CinemaId" />
+        <input type="hidden" asp-for="MovieShowTime.MovieId" value ="@Model.MovieShowTime.MovieId" />
+
         <input type="hidden" asp-for="MovieShowTime.Id" />
             <div class="form-group">
                 <label asp-for="MovieShowTime.MovieScreeningTime" class="control-label"></label>
@@ -41,9 +45,9 @@
 
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TicketOrder.MovieShowTime" value="@Model.MovieShowTime" />
-            <input type="hidden" asp-for="TicketOrder.Id" />
+            
             <input type="hidden" asp-for="TicketOrder.Price" />
+            <input type="hidden" asp-for="TicketOrder.BookingNumber" />
             <div class="form-group">
                 <label asp-for="TicketOrder.FirstName" class="control-label"></label>
                 <input asp-for="TicketOrder.FirstName" class="form-control" />

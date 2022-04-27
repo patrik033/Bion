@@ -35,7 +35,7 @@ namespace Bion.Pages.Bookings
 
             MovieShowTime = await _context.MovieShowTimes
                 .Include(m => m.Cinema)
-                .Include(m => m.Movie).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(m => m.Movie).AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
 
             if (MovieShowTime == null)
             {
@@ -48,12 +48,53 @@ namespace Bion.Pages.Bookings
             return Page();
         }
 
+
+
+
+
+
+
         public IActionResult OnPost()
         {
-            TicketOrder.MovieShowTime = MovieShowTime;
+
+            var cinema = _context.MovieShowTimes.FirstOrDefault(x => x.Id == MovieShowTime.Id);
+
+            
             TicketOrder.Price = TotalCost();
-            return Page();
+            TicketOrder.BookingNumber = GenerateBookingNumber();
+
+            //TODO validera
+            MovieShowTime.AvailableSeats -= TicketOrder.Seats;
+            var correct = MovieShowTime.AvailableSeats;
+            cinema.AvailableSeats = correct;
+            _context.SaveChanges();
+            _context.ChangeTracker.Clear();
+
+            var ticket = new TicketOrder
+            {
+                FirstName = TicketOrder.FirstName,
+                LastName = TicketOrder.LastName,
+                Email = TicketOrder.Email,
+                Seats = TicketOrder.Seats,
+                Price = TicketOrder.Price,
+                MovieTitle = MovieShowTime.Movie.Title,
+                BookingNumber = TicketOrder.BookingNumber,
+                SalongName = MovieShowTime.Cinema.CinemaName,
+                Time = MovieShowTime.MovieScreeningTime.ToString() + ":00",
+            };
+
+            _context.TicketOrders.Add(ticket);
+            _context.SaveChanges();
+            return RedirectToPage("Summary", new { id = ticket.Id });
         }
+
+
+
+
+
+
+
+
         private decimal SetPrice()
         {
             var movie = MovieShowTime.MovieId;
@@ -70,6 +111,16 @@ namespace Bion.Pages.Bookings
         {
             TicketOrder.Price = TicketOrder.Price * TicketOrder.Seats;
             return TicketOrder.Price;
+        }
+
+        private string GenerateBookingNumber()
+        {
+            long i = 1;
+            foreach (byte b in Guid.NewGuid().ToByteArray())
+            {
+                i *= ((int)b + 1);
+            }
+            return string.Format("{0:x}", i - DateTime.Now.Ticks);
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Bion.Data
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Cinema> Cinemas { get; set; }
         public DbSet<MovieShowTime> MovieShowTimes { get; set; }
+        public DbSet<TicketOrder> TicketOrders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
