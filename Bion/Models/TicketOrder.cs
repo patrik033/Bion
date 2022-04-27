@@ -10,6 +10,7 @@ namespace Bion.Models
 {
     public class TicketOrder
     {
+        public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -21,5 +22,8 @@ namespace Bion.Models
         public int Seats { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
+        public MovieShowTime MovieShowTime { get; set; }
+
+
     }
 }

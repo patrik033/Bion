@@ -12,44 +12,38 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MovieShowTime.MovieScreeningTime)
+            <label asp-for="MovieShowTime.MovieScreeningTime"></label>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MovieShowTime.MovieScreeningTime)
+            @Model.MovieShowTime.MovieScreeningTime
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MovieShowTime.AvailableSeats)
+            <label asp-for="MovieShowTime.AvailableSeats"></label>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MovieShowTime.AvailableSeats)
+            @Model.MovieShowTime.AvailableSeats
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MovieShowTime.MaxNumberSeats)
+            <label asp-for="MovieShowTime.MaxNumberSeats"></label>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MovieShowTime.MaxNumberSeats)
+            @Model.MovieShowTime.MaxNumberSeats
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MovieShowTime.TicketPrice)
+            <label asp-for="MovieShowTime.Cinema.CinemaName"></label>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MovieShowTime.TicketPrice)
+            @Model.MovieShowTime.Cinema.CinemaName
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MovieShowTime.Cinema)
+            <label asp-for="MovieShowTime.Movie.Title"></label>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MovieShowTime.Cinema.CinemaName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MovieShowTime.Movie)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MovieShowTime.Movie.Title)
+            @Model.MovieShowTime.Movie.Title
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.MovieShowTime.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.MovieShowTime.Id" class="btn btn-primary">Edit</a> 
+    <a asp-page="./Index" class="btn btn-danger">Back to List</a>
 </div>

@@ -2,23 +2,28 @@ html {
     font-size: 14px;
 }
 
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
+    }
+    body{
+        margin-left:16px;
     }
 }
 
 @media(max-width: 768px) {
 
-    
-    .body{
-        
-       
+    body{
+        margin-left:16px;
+        padding-left:16px;
     }
+   
     .align-me {
         flex-direction: column;
         margin:0px;
         padding:0px;
+        margin-left:16px;
     }
     .space{
         right:0px;
@@ -36,6 +41,7 @@ html {
 
 body {
     margin-bottom: 60px;
+    margin-left:16px;
 }
 
 

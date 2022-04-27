@@ -12,14 +12,14 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cinema.CinemaName)
+            <label asp-for="@Model.Cinema.CinemaName"></label>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Cinema.CinemaName)
+            @Model.Cinema.CinemaName
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Cinema.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Cinema.Id" class="btn btn-primary">Edit</a> 
+    <a asp-page="./Index" class="btn btn-info">Back to List</a>
 </div>

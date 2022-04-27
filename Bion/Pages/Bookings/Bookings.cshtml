@@ -1,0 +1,87 @@
+﻿@page
+@model Bion.Pages.Bookings.BookingsModel
+
+<h4>MovieShowTime</h4>
+<hr />
+<div class="row">
+   
+    <form method="post">
+
+
+        <div class="col-md-6">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="MovieShowTime.Id" />
+            <div class="form-group">
+                <label asp-for="MovieShowTime.MovieScreeningTime" class="control-label"></label>
+                <input asp-for="MovieShowTime.MovieScreeningTime" readonly="readonly" class="form-control" />
+                <span asp-validation-for="MovieShowTime.MovieScreeningTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieShowTime.AvailableSeats" class="control-label"></label>
+                <input asp-for="MovieShowTime.AvailableSeats" readonly="readonly" class="form-control" />
+                <span asp-validation-for="MovieShowTime.AvailableSeats" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MovieShowTime.Cinema.CinemaName" class="control-label"></label>
+                <input asp-for="MovieShowTime.Cinema.CinemaName" readonly="readonly" class="form-control" asp-items="ViewBag.CinemaId"></input>
+                <span asp-validation-for="MovieShowTime.CinemaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieShowTime.MovieId" class="control-label"></label>
+                <input asp-for="MovieShowTime.Movie.Title" readonly="readonly" class="form-control" asp-items="ViewBag.MovieId"></input>
+                <span asp-validation-for="MovieShowTime.MovieId" class="text-danger"></span>
+            </div>
+            <div>
+            </div>
+        </div>
+
+
+        <div class="col-6">
+
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TicketOrder.MovieShowTime" value="@Model.MovieShowTime" />
+            <input type="hidden" asp-for="TicketOrder.Id" />
+            <input type="hidden" asp-for="TicketOrder.Price" />
+            <div class="form-group">
+                <label asp-for="TicketOrder.FirstName" class="control-label"></label>
+                <input asp-for="TicketOrder.FirstName" class="form-control" />
+                <span asp-validation-for="TicketOrder.FirstName" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="TicketOrder.LastName" class="control-label"></label>
+                <input asp-for="TicketOrder.LastName" class="form-control" />
+                <span asp-validation-for="TicketOrder.LastName" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="TicketOrder.Email" class="control-label"></label>
+                <input asp-for="TicketOrder.Email" class="form-control" asp-items="ViewBag.CinemaId"></input>
+                <span asp-validation-for="TicketOrder.Email" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="TicketOrder.Seats" class="control-label"></label>
+                <input asp-for="TicketOrder.Seats" class="form-control" asp-items="ViewBag.MovieId"></input>
+                <span asp-validation-for="TicketOrder.Seats" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary mt-2" />
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

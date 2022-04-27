@@ -2,52 +2,50 @@
 @model Bion.Pages.SalongTwoModel
 
 
-<h1>Nummer Två</h1>
+<h1>Salong Två</h1>
 
 
-<table class="table">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MovieShowTime[1].MovieScreeningTime)
+                Movie Screening Time
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MovieShowTime[1].AvailableSeats)
+                Available Seats
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MovieShowTime[1].MaxNumberSeats)
+                Cinema Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MovieShowTime[1].Cinema)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MovieShowTime[1].Movie)
+                Movie
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.MovieShowTime) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MovieScreeningTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AvailableSeats)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxNumberSeats)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cinema.CinemaName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Movie.Title)
-            </td>
-            <td>
-                <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.Id">Reserve</a> 
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.MovieShowTime)
+        {
+            <tr>
+                <td>
+                    @item.MovieScreeningTime:00
+                </td>
+                <td>
+                    @item.AvailableSeats
+                </td>
+                <td>
+                    @item.Cinema.CinemaName
+                </td>
+                <td>
+                    @item.Movie.Title
+                </td>
+                @if (item.AvailableSeats > 0)
+                {
+                    <td>
+                        <a class="btn btn-primary" asp-page="/Bookings/Bookings" asp-route-id="@item.Id">Reserve</a>
+                    </td>
+                }
+            </tr>
+        }
     </tbody>
 </table>

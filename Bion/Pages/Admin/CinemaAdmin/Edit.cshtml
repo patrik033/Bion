@@ -1,9 +1,7 @@
 ﻿@page
 @model Bion.Pages.Admin.CinemaAdmin.EditModel
 
-@{
-    ViewData["Title"] = "Edit";
-}
+
 
 <h1>Edit</h1>
 
@@ -20,14 +18,14 @@
                 <span asp-validation-for="Cinema.CinemaName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary mt-2" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index" class="btn btn-danger my-2">Back to List</a>
 </div>
 
 @section Scripts {
