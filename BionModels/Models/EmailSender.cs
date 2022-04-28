@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.UI.Services;
+﻿using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using MimeKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,22 @@ namespace BionModels.Models
         //TODO: make an actual emailsender
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
+            //configuration
+            var emailToSender = new MimeMessage();
+            emailToSender.From.Add(MailboxAddress.Parse("hello@bangansbio.com"));
+            emailToSender.To.Add(MailboxAddress.Parse(email));
+            emailToSender.Body = new TextPart(MimeKit.Text.TextFormat.Html) { Text = htmlMessage };
+        
+            //sending the email
+            using(var emailClient = new SmtpClient())
+            {
+                emailClient.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                emailClient.Authenticate("patrik.odh2@gmail.com", "whaty0us33iswhaty0ug3t");
+                emailClient.Send(emailToSender);
+                emailClient.Disconnect(true);
+            }
             return Task.CompletedTask;
         }
+
     }
 }

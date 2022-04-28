@@ -24,24 +24,19 @@
                     <ul class="navbar-nav flex-grow-1">
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Admin
-                            </a>
                             @if (User.IsInRole(StaticDetails.ManagerRole))
                             {
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item text-white" asp-area="" asp-page="/Admin/MovieShowTimeAdmin/Index">ShowTime</a>
+                                    <a class="dropdown-item text-white" asp-area="" asp-page="/Admin/MovieAdmin/Index">Movie Admin</a>
+                                    <a class="dropdown-item text-white" asp-area="" asp-page="/Admin/CinemaAdmin/Index">Cinema Admin</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-white" asp-area="Identity" asp-page="/Account/Register">Register user</a>
 
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" asp-area="" asp-page="/Admin/MovieShowTimeAdmin/Index">ShowTime</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" asp-area="" asp-page="/Admin/MovieAdmin/Index">Movie Admin</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white" asp-area="" asp-page="/Admin/CinemaAdmin/Index">Cinema Admin</a>
-                                    </li>
-                                </ul>
+                                </div>
                             }
                         </li>
                         <li class="nav-item">
