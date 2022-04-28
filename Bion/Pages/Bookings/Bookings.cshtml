@@ -4,17 +4,17 @@
 <h4>MovieShowTime</h4>
 <hr />
 <div class="row">
-   
+
     <form method="post">
 
 
         <div class="col-md-6">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="MovieShowTime.MaxNumberSeats" value ="@Model.MovieShowTime.MaxNumberSeats" />
-        <input type="hidden" asp-for="MovieShowTime.CinemaId" value ="@Model.MovieShowTime.CinemaId" />
-        <input type="hidden" asp-for="MovieShowTime.MovieId" value ="@Model.MovieShowTime.MovieId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MovieShowTime.MaxNumberSeats" value="@Model.MovieShowTime.MaxNumberSeats" />
+            <input type="hidden" asp-for="MovieShowTime.CinemaId" value="@Model.MovieShowTime.CinemaId" />
+            <input type="hidden" asp-for="MovieShowTime.MovieId" value="@Model.MovieShowTime.MovieId" />
 
-        <input type="hidden" asp-for="MovieShowTime.Id" />
+            <input type="hidden" asp-for="MovieShowTime.Id" />
             <div class="form-group">
                 <label asp-for="MovieShowTime.MovieScreeningTime" class="control-label"></label>
                 <input asp-for="MovieShowTime.MovieScreeningTime" readonly="readonly" class="form-control" />
@@ -28,13 +28,13 @@
 
             <div class="form-group">
                 <label asp-for="MovieShowTime.Cinema.CinemaName" class="control-label"></label>
-                <input asp-for="MovieShowTime.Cinema.CinemaName" readonly="readonly" class="form-control" asp-items="ViewBag.CinemaId"></input>
-                <span asp-validation-for="MovieShowTime.CinemaId" class="text-danger"></span>
+                <input asp-for="MovieShowTime.Cinema.CinemaName" readonly="readonly" class="form-control" asp-items="ViewBag.CinemaId">
+                <span asp-validation-for="MovieShowTime.Cinema.CinemaName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MovieShowTime.MovieId" class="control-label"></label>
-                <input asp-for="MovieShowTime.Movie.Title" readonly="readonly" class="form-control" asp-items="ViewBag.MovieId"></input>
-                <span asp-validation-for="MovieShowTime.MovieId" class="text-danger"></span>
+                <label asp-for="MovieShowTime.Movie.Title" class="control-label"></label>
+                <input asp-for="MovieShowTime.Movie.Title" readonly="readonly" class="form-control" asp-items="ViewBag.MovieId">
+                <span asp-validation-for="MovieShowTime.Movie.Title" class="text-danger"></span>
             </div>
             <div>
             </div>
@@ -42,10 +42,7 @@
 
 
         <div class="col-6">
-
-
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
             <input type="hidden" asp-for="TicketOrder.Price" />
             <input type="hidden" asp-for="TicketOrder.BookingNumber" />
             <div class="form-group">
@@ -64,23 +61,68 @@
 
             <div class="form-group">
                 <label asp-for="TicketOrder.Email" class="control-label"></label>
-                <input asp-for="TicketOrder.Email" class="form-control" asp-items="ViewBag.CinemaId"></input>
+                <input asp-for="TicketOrder.Email" class="form-control" asp-items="ViewBag.CinemaId">
                 <span asp-validation-for="TicketOrder.Email" class="text-danger"></span>
             </div>
 
 
             <div class="form-group">
                 <label asp-for="TicketOrder.Seats" class="control-label"></label>
-                <input asp-for="TicketOrder.Seats" class="form-control" asp-items="ViewBag.MovieId"></input>
+                <input asp-for="TicketOrder.Seats" class="form-control" asp-items="ViewBag.MovieId">
                 <span asp-validation-for="TicketOrder.Seats" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary mt-2" />
+                @*<input type="submit" value="Save" class="btn btn-primary mt-2" />*@
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#saveModal">
+                    Save
+                </button>
+
             </div>
         </div>
+
+
+
+        <!-- Modal -->
+<div class="modal fade" id="saveModal" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <input type="submit" value="Save" class="btn btn-primary mt-2" />
+                
+            </div>
+        </div>
+    </div>
+</div>
     </form>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

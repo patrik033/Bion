@@ -41,17 +41,9 @@ namespace Bion.Pages.Bookings
             {
                 return NotFound();
             }
-          
-            
             TicketOrder.Price = SetPrice();
-            
             return Page();
         }
-
-
-
-
-
 
 
         public IActionResult OnPost()
@@ -59,41 +51,42 @@ namespace Bion.Pages.Bookings
 
             var cinema = _context.MovieShowTimes.FirstOrDefault(x => x.Id == MovieShowTime.Id);
 
-            
+
             TicketOrder.Price = TotalCost();
             TicketOrder.BookingNumber = GenerateBookingNumber();
 
-            //TODO validera
             MovieShowTime.AvailableSeats -= TicketOrder.Seats;
-            var correct = MovieShowTime.AvailableSeats;
-            cinema.AvailableSeats = correct;
-            _context.SaveChanges();
-            _context.ChangeTracker.Clear();
-
-            var ticket = new TicketOrder
+            if (MovieShowTime.AvailableSeats < 0)
             {
-                FirstName = TicketOrder.FirstName,
-                LastName = TicketOrder.LastName,
-                Email = TicketOrder.Email,
-                Seats = TicketOrder.Seats,
-                Price = TicketOrder.Price,
-                MovieTitle = MovieShowTime.Movie.Title,
-                BookingNumber = TicketOrder.BookingNumber,
-                SalongName = MovieShowTime.Cinema.CinemaName,
-                Time = MovieShowTime.MovieScreeningTime.ToString() + ":00",
-            };
+                ModelState.AddModelError(String.Empty, $"Sorry, there's no more than {MovieShowTime.AvailableSeats+TicketOrder.Seats} seats available");
+                return Page();
+            }
+            else
+            {
 
-            _context.TicketOrders.Add(ticket);
-            _context.SaveChanges();
-            return RedirectToPage("Summary", new { id = ticket.Id });
+                var correct = MovieShowTime.AvailableSeats;
+                cinema.AvailableSeats = correct;
+                _context.SaveChanges();
+                _context.ChangeTracker.Clear();
+
+                var ticket = new TicketOrder
+                {
+                    FirstName = TicketOrder.FirstName,
+                    LastName = TicketOrder.LastName,
+                    Email = TicketOrder.Email,
+                    Seats = TicketOrder.Seats,
+                    Price = TicketOrder.Price,
+                    MovieTitle = MovieShowTime.Movie.Title,
+                    BookingNumber = TicketOrder.BookingNumber,
+                    SalongName = MovieShowTime.Cinema.CinemaName,
+                    Time = MovieShowTime.MovieScreeningTime.ToString() + ":00",
+                };
+
+                 _context.TicketOrders.Add(ticket);
+                 _context.SaveChanges();
+                return RedirectToPage("Summary", new { id = ticket.Id });
+            }
         }
-
-
-
-
-
-
-
 
         private decimal SetPrice()
         {
@@ -104,6 +97,8 @@ namespace Bion.Pages.Bookings
                 price = 120M;
             else if (time >= 13 && time <= 18 && movie == 2)
                 price = 180M;
+            else
+                price = 100M;
             return price;
         }
 

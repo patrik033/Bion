@@ -7,20 +7,17 @@ html {
     html {
         font-size: 16px;
     }
-    body{
-        margin-left:16px;
-    }
 }
 
 @media(max-width: 1000px) {
 
     html{
-        padding-left:16px;
+        /*padding-left:16px;*/
     }
 
     body{
-        margin-left:16px;
-        padding-left:16px;
+        /*margin-left:16px;*/
+        /*padding-left:16px;*/
     }
    
     .align-me {
@@ -29,7 +26,7 @@ html {
    
 
     .small-screen-right{
-        right:35px;
+    /*    right:35px;*/
 
     }
  
@@ -44,18 +41,19 @@ html {
 
 body {
     margin-bottom: 60px;
-    margin-left:16px;
+ 
+    /*margin-left:16px;*/
 }
 
 
 .align-me {
-    margin: 5%;
+    /*margin: 5%;*/
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .space {
-    right:70px;
+    /*right:70px;*/
 }
 
 
