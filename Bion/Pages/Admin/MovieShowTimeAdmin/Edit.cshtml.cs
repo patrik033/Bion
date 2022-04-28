@@ -1,5 +1,7 @@
 ﻿#nullable disable
 using Bion.Models;
+using BionModels.IdentityTypes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -7,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bion.Pages.Admin.MovieShowTimeAdmin
 {
+    [Authorize(Roles = $"{StaticDetails.ManagerRole}")]
     public class EditModel : PageModel
     {
         private readonly Bion.Data.CinemaContext _context;

@@ -9,9 +9,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bion.Data;
 using Bion.Models;
+using BionModels.IdentityTypes;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bion.Pages.Admin.MovieAdmin
 {
+    [Authorize(Roles = $"{StaticDetails.ManagerRole}")]
     public class EditModel : PageModel
     {
         private readonly Bion.Data.CinemaContext _context;

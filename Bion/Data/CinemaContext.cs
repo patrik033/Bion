@@ -1,9 +1,10 @@
 ﻿using Bion.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bion.Data
 {
-    public class CinemaContext : DbContext
+    public class CinemaContext : IdentityDbContext
     {
         public CinemaContext(DbContextOptions<CinemaContext> options) : base(options) { }
 
@@ -11,6 +12,7 @@ namespace Bion.Data
         public DbSet<Cinema> Cinemas { get; set; }
         public DbSet<MovieShowTime> MovieShowTimes { get; set; }
         public DbSet<TicketOrder> TicketOrders { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -55,6 +57,8 @@ namespace Bion.Data
                         AvailableSeats = 100, MaxNumberSeats = 100,
                         CinemaId = 2,MovieId = 1},
                 });
+            //RÖR EJ/DO NOT TOUCH!!! - Identity
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

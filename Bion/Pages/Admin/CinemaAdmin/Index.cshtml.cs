@@ -8,9 +8,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Bion.Data;
 using Bion.Models;
+using Microsoft.AspNetCore.Authorization;
+using BionModels.IdentityTypes;
 
 namespace Bion.Pages.Admin.CinemaAdmin
 {
+    [Authorize(Roles = $"{StaticDetails.ManagerRole}")]
     public class IndexModel : PageModel
     {
         private readonly Bion.Data.CinemaContext _context;
