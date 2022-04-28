@@ -24,7 +24,7 @@ namespace BionModels.Models
             using(var emailClient = new SmtpClient())
             {
                 emailClient.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                emailClient.Authenticate("patrik.odh2@gmail.com", "whaty0us33iswhaty0ug3t");
+                emailClient.Authenticate("email", "password");
                 emailClient.Send(emailToSender);
                 emailClient.Disconnect(true);
             }
