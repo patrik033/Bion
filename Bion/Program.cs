@@ -29,10 +29,12 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 });
 
+
+//TODO: how to store sensetive information?
 builder.Services.AddAuthentication().AddFacebook(options =>
 {
-    options.AppId = "5247175265344180";
-    options.AppSecret = "3120ad954f44dcd4fba47133bdaae8ed";
+    options.AppId = "appid";
+    options.AppSecret = "appsecret";
 });
 
 

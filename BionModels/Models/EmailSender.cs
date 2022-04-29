@@ -1,11 +1,6 @@
 ﻿using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using MimeKit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BionModels.Models
 {
@@ -23,8 +18,10 @@ namespace BionModels.Models
             //sending the email
             using(var emailClient = new SmtpClient())
             {
+                //denna gör att du kan skicka mail - ta inte bort
+                emailClient.CheckCertificateRevocation = false;
                 emailClient.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                emailClient.Authenticate("email", "password");
+                emailClient.Authenticate("bangans.bio@gmail.com", "yxetizawatohpsxh");
                 emailClient.Send(emailToSender);
                 emailClient.Disconnect(true);
             }
