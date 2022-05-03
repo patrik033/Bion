@@ -36,6 +36,11 @@
                 <input asp-for="MovieShowTime.Movie.Title" readonly="readonly" class="form-control" asp-items="ViewBag.MovieId">
                 <span asp-validation-for="MovieShowTime.Movie.Title" class="text-danger"></span>
             </div>
+             <div class="form-group">
+                <label asp-for="TicketOrder.Price" class="control-label"></label>
+                <input asp-for="TicketOrder.Price" readonly="readonly" class="form-control" asp-items="ViewBag.MovieId">
+                <span asp-validation-for="TicketOrder.Price" class="text-danger"></span>
+            </div>
             <div>
             </div>
         </div>
