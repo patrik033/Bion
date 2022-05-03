@@ -71,6 +71,20 @@
         
     </dl>
 </div>
+
+<form method="post">
+    <p>Do you want to get a confirmation to your email?</p>
+    <input type="hidden" asp-for="@Model.TicketOrder.Email" value="@Model.TicketOrder.Email" />
+    <input type="hidden" asp-for="@Model.TicketOrder.MovieTitle" value="@Model.TicketOrder.MovieTitle" />
+    <input type="hidden" asp-for="@Model.TicketOrder.Seats" value="@Model.TicketOrder.Seats" />
+    <input type="hidden" asp-for="@Model.TicketOrder.Price" value="@Model.TicketOrder.Price" />
+    <input type="hidden" asp-for="@Model.TicketOrder.BookingNumber" value="@Model.TicketOrder.BookingNumber" />
+    <input type="hidden" asp-for="@Model.TicketOrder.SalongName" value="@Model.TicketOrder.SalongName" />
+    <input type="hidden" asp-for="@Model.TicketOrder.Time" value="@Model.TicketOrder.Time" />
+    
+    
+    <input type="submit" value="Yes" class="btn btn-primary my-3"/>
+</form>
 <div>
     <a asp-page="/Index" class="btn btn-danger">Back to List</a>
 </div>

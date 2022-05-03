@@ -13,6 +13,7 @@ namespace BionModels.Models
             var emailToSender = new MimeMessage();
             emailToSender.From.Add(MailboxAddress.Parse("hello@bangansbio.com"));
             emailToSender.To.Add(MailboxAddress.Parse(email));
+            emailToSender.Subject = subject;
             emailToSender.Body = new TextPart(MimeKit.Text.TextFormat.Html) { Text = htmlMessage };
         
             //sending the email
