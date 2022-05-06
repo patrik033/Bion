@@ -5,6 +5,11 @@
 <hr />
 <div class="row">
 
+
+    <div class="form-group col-md-6">
+        <label asp-for="TicketOrder.Price" class="control-label"></label>
+        <input asp-for="TicketOrder.Price" readonly="readonly" class="form-control" />
+    </div>
     <form method="post">
 
 
@@ -35,11 +40,6 @@
                 <label asp-for="MovieShowTime.Movie.Title" class="control-label"></label>
                 <input asp-for="MovieShowTime.Movie.Title" readonly="readonly" class="form-control" asp-items="ViewBag.MovieId">
                 <span asp-validation-for="MovieShowTime.Movie.Title" class="text-danger"></span>
-            </div>
-             <div class="form-group">
-                <label asp-for="TicketOrder.Price" class="control-label"></label>
-                <input asp-for="TicketOrder.Price" readonly="readonly" class="form-control" asp-items="ViewBag.MovieId">
-                <span asp-validation-for="TicketOrder.Price" class="text-danger"></span>
             </div>
             <div>
             </div>
@@ -88,24 +88,24 @@
 
 
         <!-- Modal -->
-<div class="modal fade" id="saveModal" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Are you sure?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <input type="submit" value="Save" class="btn btn-primary mt-2" />
-                
+        <div class="modal fade" id="saveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" value="Save" class="btn btn-primary mt-2" />
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
     </form>
 
 </div>
